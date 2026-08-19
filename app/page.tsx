@@ -57,26 +57,95 @@ const destinations = [
 ];
 
 const adventures = [
-  ["River Rafting", "Ride the Beas with your crew.", Waves, images.rafting],
-  ["Paragliding", "A sky-high Himalayan perspective.", Plane, images.para],
-  ["Snow Activities", "Solang's white playground awaits.", Sparkles, images.snow],
-  ["Bonfire Night", "Stories, music and mountain air.", Flame, images.bonfire],
-  ["Lantern Festival", "A little light for every big dream.", Sparkles, images.lantern],
-  ["Neon New Year Party", "Countdown in full colour.", Star, images.neon],
+  ["River Rafting", "Ride the Beas with your crew — included in the package!", Waves, images.rafting, true],
+  ["Paragliding", "A sky-high Himalayan perspective. (At your own expense)", Plane, images.para, false],
+  ["Snow Activities", "Solang's white playground awaits. (At your own expense)", Sparkles, images.snow, false],
+  ["Bonfire Night", "Stories, music and mountain air.", Flame, images.bonfire, true],
+  ["Lantern Festival", "A little light for every big dream.", Sparkles, images.lantern, true],
+  ["Neon New Year Party", "Countdown in full colour.", Star, images.neon, true],
 ] as const;
 
 const itinerary = [
-  "Mumbai → Delhi",
-  "Delhi Sightseeing",
-  "Manali + River Rafting + New Year Celebration",
-  "Solang Valley",
-  "Kasol + Paragliding",
-  "Tosh Village",
-  "Dharamshala",
-  "Amritsar",
-  "Delhi",
-  "Train Journey",
-  "Mumbai Arrival",
+  {
+    title: "Mumbai → Delhi",
+    description:
+      "Gather at Bandra Terminus by 11:00 AM to board the DEE GARIBRATH 12216 at 12:00 PM. Settle in for an overnight train journey to Delhi as your Himalayan adventure begins.",
+    meals: null,
+    activity: null,
+  },
+  {
+    title: "Delhi",
+    description:
+      "Arrival at Delhi Sarai Rohilla Railway Station by 11:00 AM, followed by a sightseeing tour of Delhi. In the evening, enjoy dinner and commence the overnight journey toward Manali.",
+    meals: "Brunch & Dinner",
+    activity: null,
+  },
+  {
+    title: "Manali — River Rafting & New Year Glow",
+    description:
+      "Arrive in Kullu and head out for an exciting river rafting session on the mighty Beas River — included in your package! After rafting, check in to the hotel, freshen up and relax. In the evening, visit the famous Mall Road for shopping, local food and leisure time. Return for dinner and gear up for the Neon Party — music, lights & unlimited dance vibes. Fireworks light up the night sky to ring in the New Year!",
+    meals: "Breakfast, Lunch & Dinner",
+    activity: "River Rafting — Included ✓",
+    activityOwn: null,
+  },
+  {
+    title: "Solang Valley",
+    description:
+      "Start your day with breakfast and drive to Solang Valley for a full-day trip. Weather permitting, explore the Atal Tunnel and take in stunning snow views. Optional paid adventure activities available: Ziplining, Skiing, ATV Ride, Snow Scooter and more (at your own expense). Later in the evening, visit the iconic Hidimba Devi Temple. Overnight stay at the hotel.",
+    meals: "Breakfast & Dinner",
+    activity: null,
+    activityOwn: "Adventure activities (Ziplining, Skiing, ATV, Snow Scooter etc.) — At your own expense",
+  },
+  {
+    title: "Kasol Valley",
+    description:
+      "After breakfast, check out from the hotel. Optional paragliding session available at your own cost. Later, visit the famous R.K. Shawl Factory for authentic Himachali woollen products and drive to the scenic Kasol. Visit the beautiful Parvati Valley and explore the charming village vibes. Overnight stay in Kasol.",
+    meals: "Breakfast & Dinner",
+    activity: null,
+    activityOwn: "Paragliding — At your own expense",
+  },
+  {
+    title: "Tosh Village & Live DJ",
+    description:
+      "After breakfast, visit Manikaran Gurudwara for a holy dip in the famous hot water springs. Then explore the picturesque Tosh Village nestled high in the Parvati Valley. In the evening, enjoy a bonfire, Open Air DJ under the stars and dinner in Kasol. Later at night, depart for Dharamshala for an overnight journey.",
+    meals: "Breakfast, Lunch at Gurudwara & Dinner",
+    activity: null,
+  },
+  {
+    title: "Dharamshala",
+    description:
+      "Arrive in Dharamshala in the morning, check-in and rest. Post lunch, visit the iconic Dharamshala Cricket Stadium, scenic Bhagsu Falls and the historic St. John in the Wilderness Church. Spend the evening at Namgyal Monastery and explore McLeod Ganj Market. End the magical day with a Sky Lantern Show under the stars. Dinner and overnight stay.",
+    meals: "Breakfast, Lunch & Dinner",
+    activity: null,
+  },
+  {
+    title: "Amritsar — New Year's Eve",
+    description:
+      "Start your day with breakfast, check out and head to Amritsar. After checking in, unwind for a bit. In the afternoon, experience the electrifying energy of the Wagah Border Beating Retreat Ceremony. In the evening, release sky lanterns and capture magical moments under the stars. Come back to the hotel to celebrate New Year's Eve in style — grand 31st December party with music, dance, entertainment and a special dinner await you!",
+    meals: "Breakfast & Dinner",
+    activity: null,
+  },
+  {
+    title: "Amritsar → Delhi",
+    description:
+      "Start the day with breakfast, check out and explore the historic Partition Museum and the poignant Jallianwala Bagh. Spend the evening shopping and soaking in the vibrant vibes of Amritsar Market. After dinner, depart for an overnight drive to Delhi.",
+    meals: "Breakfast, Lunch at Gurudwara & Dinner",
+    activity: null,
+  },
+  {
+    title: "Delhi → Mumbai (Train)",
+    description:
+      "Reach Delhi in the morning and catch the BDTS Garib Rath (12215) departing from Delhi Sarai Rohilla at 08:55 AM. Settle in for a scenic full-day train journey to Mumbai, followed by an overnight ride.",
+    meals: null,
+    activity: null,
+  },
+  {
+    title: "Mumbai — Journey's End",
+    description:
+      "Reach Mumbai in the morning, bringing a beautiful journey to an end. Head back home with a heart full of happy memories and experiences you'll cherish for a lifetime.",
+    meals: null,
+    activity: null,
+  },
 ];
 
 const hotels = [
@@ -87,10 +156,11 @@ const hotels = [
 ] as const;
 
 const faqs = [
-  ["Is rafting included?", "Yes. River rafting is part of the experience, subject to weather and local safety conditions."],
-  ["Is paragliding included?", "The itinerary includes the paragliding experience; flight operations always depend on the weather."],
+  ["Is rafting included?", "Yes! River rafting on the Beas is fully included in your package, subject to weather and local safety conditions."],
+  ["Is paragliding included?", "Paragliding is available during the trip but is at your own expense. It is not included in the package price."],
+  ["What other activities are at my own expense?", "Activities like Ziplining, Skiing, ATV Ride, Snow Scooter in Solang Valley and Paragliding in Kasol are optional and payable on the spot."],
   ["What is the cancellation policy?", "Our travel team will share the applicable cancellation terms with your booking confirmation."],
-  ["Are meals included?", "Yes - the expedition includes the meals listed in your final itinerary."],
+  ["Are meals included?", "Yes — the expedition includes the meals listed in each day's itinerary. Most days include Breakfast & Dinner; some include Lunch too."],
   ["Can girls join solo?", "Absolutely. Our trips are designed to be welcoming, social and well coordinated for solo travellers."],
   ["How are room allocations done?", "Rooms are arranged on a group-sharing basis, with allocations finalized by the trip team."],
 ];
@@ -275,11 +345,16 @@ export default function Home() {
             </h2>
           </Reveal>
           <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {adventures.map(([title, copy, Icon, img]) => (
+            {adventures.map(([title, copy, Icon, img, included]) => (
               <Reveal key={String(title)}>
                 <article className="group relative h-64 overflow-hidden rounded-2xl sm:h-72">
                   <img src={String(img)} alt={String(title)} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+                  {included !== undefined && (
+                    <span className={`absolute right-3 top-3 rounded-full px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide ${included ? "bg-green-500/90 text-white" : "bg-orange-500/90 text-white"}`}>
+                      {included ? "✓ Included" : "Own expense"}
+                    </span>
+                  )}
                   <div className="absolute inset-x-0 bottom-0 p-5">
                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-adventure">
                       <Icon size={18} />
@@ -302,15 +377,32 @@ export default function Home() {
             <h2 className="mt-3 font-display text-2xl font-extrabold text-slate sm:text-4xl">Eleven days, one brilliant escape.</h2>
             <p className="mx-auto mt-3 max-w-xl text-sm text-slate/60">Every day has a destination. Every destination has a feeling.</p>
           </Reveal>
-          {/* Mobile: simple left-aligned list. Desktop: alternating timeline */}
-          <div className="relative mx-auto mt-10 max-w-3xl before:absolute before:bottom-4 before:left-5 before:top-4 before:w-px before:bg-himalayan/20 sm:before:left-1/2">
+          {/* Detailed itinerary cards */}
+          <div className="relative mx-auto mt-10 max-w-3xl before:absolute before:bottom-4 before:left-5 before:top-4 before:w-px before:bg-himalayan/20">
             {itinerary.map((item, i) => (
-              <Reveal key={item} className={`relative mb-5 flex items-center sm:${i % 2 === 0 ? "justify-start" : "justify-end"}`}>
-                <div className={`ml-12 w-[calc(100%-3rem)] rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:ml-0 sm:w-[calc(50%-2rem)] sm:p-5 ${i % 2 === 0 ? "sm:mr-auto" : "sm:ml-auto"}`}>
+              <Reveal key={item.title} className="relative mb-6 flex items-start">
+                <div className="ml-12 w-[calc(100%-3rem)] rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
                   <p className="text-xs font-extrabold uppercase tracking-widest text-adventure">Day {i + 1}</p>
-                  <p className="mt-1 font-display text-base font-bold text-slate sm:text-lg">{item}</p>
+                  <p className="mt-1 font-display text-base font-bold text-slate sm:text-lg">{item.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate/65">{item.description}</p>
+                  {item.activity && (
+                    <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-bold text-green-700">
+                      <Check size={13} /> {item.activity}
+                    </p>
+                  )}
+                  {(item as any).activityOwn && (
+                    <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold text-adventure">
+                      ⚡ {(item as any).activityOwn}
+                    </p>
+                  )}
+                  {item.meals && (
+                    <p className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-slate/55">
+                      <Flame size={13} className="text-adventure" />
+                      <span className="font-bold text-slate/75">Meals:</span> {item.meals}
+                    </p>
+                  )}
                 </div>
-                <div className="absolute left-2 top-4 flex h-7 w-7 items-center justify-center rounded-full bg-himalayan text-[10px] font-extrabold text-white sm:left-1/2 sm:-translate-x-1/2">
+                <div className="absolute left-2 top-5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-himalayan text-[10px] font-extrabold text-white">
                   {i + 1}
                 </div>
               </Reveal>
@@ -394,9 +486,10 @@ export default function Home() {
                 Your New Year,<br /><span className="text-[#ffc18c]">made legendary.</span>
               </h2>
               <div className="mt-8 space-y-3 text-sm text-white/75">
-                {["AC train tickets", "Premium hotel stays", "Meals included", "Sightseeing & local transfers", "Driver, parking & toll charges"].map((x) => (
+                {["AC train tickets", "Premium hotel stays", "River Rafting (Beas)", "Meals included", "Sightseeing & local transfers", "Driver, parking & toll charges"].map((x) => (
                   <p key={x} className="flex items-center gap-2"><Check size={16} className="text-adventure" />{x}</p>
                 ))}
+                <p className="mt-2 text-xs text-white/45">* All other adventure activities (Paragliding, Skiing, Ziplining, ATV etc.) are at your own expense.</p>
               </div>
             </div>
             <div className="m-3 rounded-2xl bg-white p-7 text-slate sm:m-5">
