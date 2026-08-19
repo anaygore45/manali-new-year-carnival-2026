@@ -8,6 +8,9 @@ import { useState } from "react";
 // Hero / destination images
 import manaliWinter from "./assets/manali-winter.png";
 import kulluRafting from "./assets/kullu-rafting.png";
+import kasolValley from "./assets/kasol-valley.png";
+import dharamshalaDhauladhar from "./assets/dharamshala-dhauladhar.png";
+import amritsarGoldenTemple from "./assets/amritsar-golden-temple.png";
 
 // Activity images (user-uploaded)
 import paragliding from "./assets/paragliding.png";
@@ -28,6 +31,9 @@ const images = {
   hero: manaliWinter.src,
   manali: manaliWinter.src,
   rafting: kulluRafting.src,
+  kasol: kasolValley.src,
+  dharamshala: dharamshalaDhauladhar.src,
+  amritsar: amritsarGoldenTemple.src,
   para: paragliding.src,
   snow: snowActivities.src,
   bonfire: bonfireNight.src,
@@ -51,9 +57,9 @@ const stats = [
 const destinations = [
   ["Manali", "Snow peaks, cozy cafés & New Year glow", images.manali],
   ["Kullu", "A wild rush on the Beas", images.rafting],
-  ["Kasol", "Pines, rivers and Himalayan calm", images.bonfire],
-  ["Dharamshala", "Monasteries beneath the Dhauladhar", images.snow],
-  ["Amritsar", "Golden moments, shared together", images.lantern],
+  ["Kasol", "Pines, rivers and Himalayan calm", images.kasol],
+  ["Dharamshala", "Monasteries beneath the Dhauladhar", images.dharamshala],
+  ["Amritsar", "Golden moments, shared together", images.amritsar],
 ];
 
 const adventures = [
