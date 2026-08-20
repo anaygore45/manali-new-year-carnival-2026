@@ -48,8 +48,8 @@ const images = {
 };
 
 const stats = [
-  ["10", "Days journey", Compass],
-  ["11", "Nights adventure", BedDouble],
+  ["11", "Days journey", Compass],
+  ["10", "Nights adventure", BedDouble],
   ["100+", "Happy travelers", Users],
   ["4", "Premium hotel stays", Star],
   ["All", "Meals included", Flame],
@@ -66,8 +66,8 @@ const destinations = [
 
 const adventures = [
   ["River Rafting", "Ride the Beas with your crew — included in the package!", Waves, images.rafting, true],
-  ["Paragliding", "A sky-high Himalayan perspective. (At your own expense)", Plane, images.para, false],
-  ["Snow Activities", "Solang's white playground awaits. (At your own expense)", Sparkles, images.snow, false],
+  ["Paragliding", "A sky-high Himalayan perspective. At your own expense — group discount applicable!", Plane, images.para, false],
+  ["Snow Activities", "Solang's white playground awaits. At your own expense — group discount applicable on Skiing, ATV, Ziplining & more!", Sparkles, images.snow, false],
   ["Bonfire Night", "Stories, music and mountain air.", Flame, images.bonfire, true],
   ["Lantern Festival", "A little light for every big dream.", Sparkles, images.lantern, true],
   ["Neon New Year Party", "Countdown in full colour.", Star, images.neon, true],
