@@ -110,7 +110,7 @@ const itinerary = [
       "After breakfast, check out from the hotel. Optional paragliding session available at your own cost. Later, visit the famous R.K. Shawl Factory for authentic Himachali woollen products and drive to the scenic Kasol. Visit the beautiful Parvati Valley and explore the charming village vibes. Overnight stay in Kasol.",
     meals: "Breakfast & Dinner",
     activity: null,
-    activityOwn: "Paragliding — At your own expense",
+    activityOwn: "Paragliding — At your own expense (Group discount applicable!)",
   },
   {
     title: "Tosh Village & Live DJ",
