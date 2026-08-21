@@ -583,7 +583,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div>
-                  <p className="font-display text-xl font-extrabold text-himalayan">100+ Happy Travelers</p>
+                  <p className="font-display text-xl font-extrabold text-himalayan">500+ Happy Travelers</p>
                   <p className="flex gap-1 text-amber-500">
                     {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                   </p>
