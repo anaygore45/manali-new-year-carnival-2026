@@ -155,10 +155,10 @@ const itinerary = [
 ];
 
 const hotels = [
-  ["Grand Mastiff Manali", "Premium Stay Highlight", "Manali", images.grandMastiff, ["Heated rooms", "Mountain views", "In-house dining"]],
-  ["Kasol Adventure Camp", "Riverside escape", "Kasol", images.kasolCamp, ["Bonfire setup", "Camp meals", "Valley views"]],
-  ["Angels Inn Dharamshala", "Serene comfort", "Dharamshala", images.angelsInn, ["Modern rooms", "Breakfast", "Great location"]],
-  ["Narula Aurum Amritsar", "City luxury", "Amritsar", images.narulaAurum, ["Premium stay", "Wi-Fi", "Restaurant"]],
+  ["Grand Mastiff Manali", "Premium Stay Highlight", "Manali", images.grandMastiff, ["Heated rooms", "Mountain views", "In-house dining"], "4.3"],
+  ["Kasol Adventure Camp", "Riverside escape", "Kasol", images.kasolCamp, ["Bonfire setup", "Camp meals", "Valley views"], "4.3"],
+  ["Angels Inn Dharamshala", "Serene comfort", "Dharamshala", images.angelsInn, ["Modern rooms", "Breakfast", "Great location"], "4.2"],
+  ["Narula Aurum Amritsar", "City luxury", "Amritsar", images.narulaAurum, ["Premium stay", "Wi-Fi", "Restaurant"], "4.3"],
 ] as const;
 
 const faqs = [
@@ -480,7 +480,7 @@ export default function Home() {
             <h2 className="mt-3 font-display text-2xl font-extrabold text-white sm:text-4xl">Your stays, curated.</h2>
           </Reveal>
           <div className="mt-8 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {hotels.map(([name, tag, place, img, amenities]) => (
+            {hotels.map(([name, tag, place, img, amenities, rating]) => (
               <Reveal key={String(name)}>
                 <article className="overflow-hidden rounded-2xl bg-[#161d2a] shadow-sm ring-1 ring-white/10">
                   <div className="relative h-48">
@@ -500,7 +500,7 @@ export default function Home() {
                         </p>
                       </div>
                       <span className="flex items-center gap-1 text-xs font-bold text-amber-500">
-                        <Star size={13} fill="currentColor" />4.8
+                        <Star size={13} fill="currentColor" />{rating}
                       </span>
                     </div>
                     <div className="mt-4 flex flex-wrap gap-2">
