@@ -258,7 +258,7 @@ export default function Home() {
 
         {/* Mobile dropdown menu */}
         {menu && (
-          <div className="absolute right-4 top-20 z-30 flex w-56 flex-col gap-3 rounded-2xl bg-white p-5 text-slate shadow-xl md:hidden">
+          <div className="absolute right-4 top-20 z-30 flex w-56 flex-col gap-3 rounded-2xl bg-[#0f1520] p-5 text-white shadow-xl border border-white/10 md:hidden">
             <a href="#journey" className="font-semibold" onClick={() => setMenu(false)}>Journey</a>
             <a href="#stay" className="font-semibold" onClick={() => setMenu(false)}>Stays</a>
             <a href="#itinerary" className="font-semibold" onClick={() => setMenu(false)}>Itinerary</a>
@@ -306,15 +306,15 @@ export default function Home() {
       </section>
 
       {/* ── STATS ── */}
-      <section id="journey" className="bg-[#f5f8fa] px-5 py-16 lg:px-8 lg:py-20">
+      <section id="journey" className="bg-[#0f1520] px-5 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <p className="section-label">Your story begins here</p>
             <div className="mt-3 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-              <h2 className="font-display max-w-2xl text-2xl font-extrabold leading-tight text-slate sm:text-4xl">
+              <h2 className="font-display max-w-2xl text-2xl font-extrabold leading-tight text-white sm:text-4xl">
                 The kind of trip you'll still talk about years from now.
               </h2>
-              <p className="max-w-sm text-sm leading-relaxed text-slate/65">
+              <p className="max-w-sm text-sm leading-relaxed text-white/65">
                 Built for people who want more than a checklist: every mile feels like part of the celebration.
               </p>
             </div>
@@ -322,10 +322,10 @@ export default function Home() {
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map(([number, label, Icon]) => (
               <Reveal key={String(label)} className="h-full">
-                <div className="h-full rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-xl">
+                <div className="h-full rounded-2xl bg-[#161d2a] p-4 shadow-sm ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-xl">
                   <Icon size={20} className="text-adventure" />
                   <p className="mt-5 font-display text-2xl font-extrabold text-himalayan">{number}</p>
-                  <p className="mt-1 text-xs font-semibold text-slate/65">{label}</p>
+                  <p className="mt-1 text-xs font-semibold text-white/65">{label}</p>
                 </div>
               </Reveal>
             ))}
@@ -373,7 +373,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <p className="section-label">Five chapters. One epic expedition.</p>
-            <h2 className="mt-3 font-display text-2xl font-extrabold text-slate sm:text-4xl">Where the mountains lead.</h2>
+            <h2 className="mt-3 font-display text-2xl font-extrabold text-white sm:text-4xl">Where the mountains lead.</h2>
           </Reveal>
           <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
             {destinations.map(([city, copy, img]) => (
@@ -435,31 +435,31 @@ export default function Home() {
         <div className="mx-auto max-w-5xl">
           <Reveal className="text-center">
             <p className="section-label">The route</p>
-            <h2 className="mt-3 font-display text-2xl font-extrabold text-slate sm:text-4xl">Eleven days, one brilliant escape.</h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm text-slate/60">Every day has a destination. Every destination has a feeling.</p>
+            <h2 className="mt-3 font-display text-2xl font-extrabold text-white sm:text-4xl">Eleven days, one brilliant escape.</h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm text-white/60">Every day has a destination. Every destination has a feeling.</p>
           </Reveal>
           {/* Detailed itinerary cards */}
           <div className="relative mx-auto mt-10 max-w-3xl before:absolute before:bottom-4 before:left-5 before:top-4 before:w-px before:bg-himalayan/20">
             {itinerary.map((item, i) => (
               <Reveal key={item.title} className="relative mb-6 flex items-start">
-                <div className="ml-12 w-[calc(100%-3rem)] rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+                <div className="ml-12 w-[calc(100%-3rem)] rounded-2xl border border-slate-100 bg-[#161d2a] p-5 shadow-sm">
                   <p className="text-xs font-extrabold uppercase tracking-widest text-adventure">Day {i + 1}</p>
-                  <p className="mt-1 font-display text-base font-bold text-slate sm:text-lg">{item.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-slate/65">{item.description}</p>
+                  <p className="mt-1 font-display text-base font-bold text-white sm:text-lg">{item.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/65">{item.description}</p>
                   {item.activity && (
                     <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-bold text-green-700">
                       <Check size={13} /> {item.activity}
                     </p>
                   )}
                   {(item as any).activityOwn && (
-                    <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold text-adventure">
+                    <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-orange-900/40 px-3 py-1 text-xs font-bold text-adventure">
                       ⚡ {(item as any).activityOwn}
                     </p>
                   )}
                   {item.meals && (
-                    <p className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-slate/55">
+                    <p className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-white/55">
                       <Flame size={13} className="text-adventure" />
-                      <span className="font-bold text-slate/75">Meals:</span> {item.meals}
+                      <span className="font-bold text-white/75">Meals:</span> {item.meals}
                     </p>
                   )}
                 </div>
@@ -473,16 +473,16 @@ export default function Home() {
       </section>
 
       {/* ── HOTELS ── */}
-      <section id="stay" className="bg-[#f5f8fa] px-5 py-16 lg:px-8 lg:py-20">
+      <section id="stay" className="bg-[#0f1520] px-5 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <p className="section-label">Rest well. Roam further.</p>
-            <h2 className="mt-3 font-display text-2xl font-extrabold text-slate sm:text-4xl">Your stays, curated.</h2>
+            <h2 className="mt-3 font-display text-2xl font-extrabold text-white sm:text-4xl">Your stays, curated.</h2>
           </Reveal>
           <div className="mt-8 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {hotels.map(([name, tag, place, img, amenities]) => (
               <Reveal key={String(name)}>
-                <article className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100">
+                <article className="overflow-hidden rounded-2xl bg-[#161d2a] shadow-sm ring-1 ring-white/10">
                   <div className="relative h-48">
                     <img src={String(img)} alt={String(name)} className="h-full w-full object-cover" />
                     {tag === "Premium Stay Highlight" && (
@@ -494,8 +494,8 @@ export default function Home() {
                   <div className="p-5">
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <h3 className="font-display font-bold text-slate">{name}</h3>
-                        <p className="mt-1 flex items-center gap-1 text-xs text-slate/55">
+                        <h3 className="font-display font-bold text-white">{name}</h3>
+                        <p className="mt-1 flex items-center gap-1 text-xs text-white/55">
                           <MapPin size={12} />{place}
                         </p>
                       </div>
@@ -505,7 +505,7 @@ export default function Home() {
                     </div>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {(amenities as readonly string[]).map((a) => (
-                        <span key={a} className="rounded-full bg-[#f5f8fa] px-2 py-1 text-[10px] font-semibold text-slate/65">{a}</span>
+                        <span key={a} className="rounded-full bg-[#0f1520] px-2 py-1 text-[10px] font-semibold text-white/65">{a}</span>
                       ))}
                     </div>
                   </div>
@@ -553,13 +553,13 @@ export default function Home() {
                 <p className="mt-2 text-xs text-white/45">* All other adventure activities (Paragliding, Skiing, Ziplining, ATV etc.) are at your own expense.</p>
               </div>
             </div>
-            <div className="m-3 rounded-2xl bg-white p-7 text-slate sm:m-5">
-              <span className="rounded-full bg-orange-50 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-adventure">Early Bird Offer</span>
-              <p className="mt-5 text-sm text-slate/50 line-through">₹17,999</p>
+            <div className="m-3 rounded-2xl bg-[#161d2a] p-7 text-white sm:m-5">
+              <span className="rounded-full bg-orange-900/40 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-adventure">Early Bird Offer</span>
+              <p className="mt-5 text-sm text-white/40 line-through">₹17,999</p>
               <p className="font-display text-4xl font-extrabold text-himalayan">₹16,999</p>
-              <p className="mt-1 text-xs text-slate/50">per traveller</p>
-              <div className="my-6 h-px bg-slate-100" />
-              <p className="text-xs font-bold text-slate/55">Easy installment plan</p>
+              <p className="mt-1 text-xs text-white/50">per traveller</p>
+              <div className="my-6 h-px bg-white/10" />
+              <p className="text-xs font-bold text-white/50">Easy installment plan</p>
               <p className="mt-2 font-display text-sm font-bold">₹4,999 + ₹5,999 + ₹5,999</p>
               <CTA className="mt-7 w-full">Reserve My Seat</CTA>
             </div>
@@ -568,12 +568,12 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIAL ── */}
-      <section className="bg-[#f5f8fa] px-5 py-16 lg:px-8 lg:py-20">
+      <section className="bg-[#0f1520] px-5 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid items-center gap-10 lg:grid-cols-[.85fr_1.15fr]">
             <Reveal>
               <p className="section-label">The Manali New Year Carnival 2026</p>
-              <h2 className="mt-3 font-display text-2xl font-extrabold text-slate sm:text-4xl">
+              <h2 className="mt-3 font-display text-2xl font-extrabold text-white sm:text-4xl">
                 Trusted by travellers who came for a trip and left with a tribe.
               </h2>
               <div className="mt-7 flex items-center gap-4">
@@ -591,16 +591,16 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal>
-              <div className="rounded-2xl bg-white p-7 shadow-sm">
+              <div className="rounded-2xl bg-[#161d2a] p-7 shadow-sm">
                 <p className="text-4xl leading-none text-adventure">"</p>
-                <p className="mt-2 font-display text-lg font-bold leading-relaxed text-slate sm:text-xl">
+                <p className="mt-2 font-display text-lg font-bold leading-relaxed text-white sm:text-xl">
                   The Manali New Year Carnival 2026 made every detail feel effortless — and every moment feel huge.
                 </p>
                 <div className="mt-6 flex items-center gap-3">
                   <img src={images.para} className="h-11 w-11 rounded-full object-cover" alt="Traveler review" />
                   <div>
                     <p className="text-sm font-bold">Aarav & the mountain crew</p>
-                    <p className="text-xs text-slate/55">Google Reviews style testimonial</p>
+                    <p className="text-xs text-white/55">Google Reviews style testimonial</p>
                   </div>
                 </div>
               </div>
@@ -614,17 +614,17 @@ export default function Home() {
         <div className="mx-auto max-w-4xl">
           <Reveal className="text-center">
             <p className="section-label">Good to know</p>
-            <h2 className="mt-3 font-display text-2xl font-extrabold text-slate sm:text-4xl">Questions, answered.</h2>
+            <h2 className="mt-3 font-display text-2xl font-extrabold text-white sm:text-4xl">Questions, answered.</h2>
           </Reveal>
           <AccordionPrimitive.Root type="single" collapsible className="mt-9 space-y-3">
             {faqs.map(([q, a], i) => (
-              <AccordionPrimitive.Item value={`faq-${i}`} key={q} className="rounded-xl border border-slate-100 px-5">
+              <AccordionPrimitive.Item value={`faq-${i}`} key={q} className="rounded-xl border border-white/10 px-5">
                 <AccordionPrimitive.Header>
-                  <AccordionPrimitive.Trigger className="flex w-full items-center justify-between py-5 text-left font-display font-bold text-slate">
+                  <AccordionPrimitive.Trigger className="flex w-full items-center justify-between py-5 text-left font-display font-bold text-white">
                     {q}<ChevronRight size={18} />
                   </AccordionPrimitive.Trigger>
                 </AccordionPrimitive.Header>
-                <AccordionPrimitive.Content className="pb-5 text-sm leading-relaxed text-slate/65">{a}</AccordionPrimitive.Content>
+                <AccordionPrimitive.Content className="pb-5 text-sm leading-relaxed text-white/65">{a}</AccordionPrimitive.Content>
               </AccordionPrimitive.Item>
             ))}
           </AccordionPrimitive.Root>
@@ -656,15 +656,15 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal>
-            <form action={formUrl} target="_blank" className="grid gap-4 rounded-2xl bg-white p-6 text-slate sm:grid-cols-2 sm:p-8">
+            <form action={formUrl} target="_blank" className="grid gap-4 rounded-2xl bg-white p-6 text-white sm:grid-cols-2 sm:p-8">
               <div className="sm:col-span-2">
                 <p className="font-display text-xl font-extrabold">Reserve your adventure</p>
-                <p className="mt-1 text-xs text-slate/55">We'll redirect you to the secure registration form.</p>
+                <p className="mt-1 text-xs text-white/55">We'll redirect you to the secure registration form.</p>
               </div>
               {[["Name", "text"], ["Phone", "tel"], ["Email", "email"], ["College", "text"], ["Emergency contact", "tel"], ["Travel group size", "number"]].map(([label, type]) => (
-                <label key={label} className="text-xs font-bold text-slate/70">
+                <label key={label} className="text-xs font-bold text-white/70">
                   {label}
-                  <input required type={type} className="mt-2 w-full rounded-lg border border-slate-200 px-3 py-3 text-sm font-normal outline-none focus:border-himalayan" />
+                  <input required type={type} className="mt-2 w-full rounded-lg border border-white/15 px-3 py-3 text-sm font-normal outline-none focus:border-[#1a6fad] bg-[#0a0e13] text-white" />
                 </label>
               ))}
               <button className="sm:col-span-2 rounded-full bg-adventure px-6 py-3.5 font-bold text-white transition hover:bg-[#e85f00] active:scale-95">
@@ -676,7 +676,7 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#091923] px-5 pb-28 pt-12 text-white/65 lg:px-8 lg:pb-12">
+      <footer className="bg-[#050810] px-5 pb-28 pt-12 text-white/65 lg:px-8 lg:pb-12">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-7 md:flex-row">
           <div>
             <p className="font-display text-xl font-extrabold text-white">
@@ -693,10 +693,13 @@ export default function Home() {
       </footer>
 
       {/* ── MOBILE STICKY CTA ── */}
-      <div className="fixed inset-x-0 bottom-0 z-30 bg-white/95 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-[0_-4px_20px_rgba(0,0,0,.12)] backdrop-blur lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-30 bg-[#0d1117]/95 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-[0_-4px_20px_rgba(0,0,0,.12)] backdrop-blur lg:hidden">
         <CTA className="w-full">Reserve Now</CTA>
       </div>
 
     </main>
   );
 }
+
+
+
