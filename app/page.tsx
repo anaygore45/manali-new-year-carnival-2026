@@ -656,15 +656,15 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal>
-            <form action={formUrl} target="_blank" className="grid gap-4 rounded-2xl bg-white p-6 text-white sm:grid-cols-2 sm:p-8">
+            <form action={formUrl} target="_blank" className="grid gap-4 rounded-2xl bg-[#161d2a] border border-white/10 p-6 text-white sm:grid-cols-2 sm:p-8">
               <div className="sm:col-span-2">
-                <p className="font-display text-xl font-extrabold">Reserve your adventure</p>
-                <p className="mt-1 text-xs text-white/55">We'll redirect you to the secure registration form.</p>
+                <p className="font-display text-xl font-extrabold text-white">Reserve your adventure</p>
+                <p className="mt-1 text-xs text-white/45">We'll redirect you to the secure registration form.</p>
               </div>
               {[["Name", "text"], ["Phone", "tel"], ["Email", "email"], ["College", "text"], ["Emergency contact", "tel"], ["Travel group size", "number"]].map(([label, type]) => (
-                <label key={label} className="text-xs font-bold text-white/70">
+                <label key={label} className="text-xs font-bold text-white/65">
                   {label}
-                  <input required type={type} className="mt-2 w-full rounded-lg border border-white/15 px-3 py-3 text-sm font-normal outline-none focus:border-[#1a6fad] bg-[#0a0e13] text-white" />
+                  <input required type={type} className="mt-2 w-full rounded-lg border border-white/15 bg-[#0d1117] px-3 py-3 text-sm font-normal text-white placeholder-white/30 outline-none focus:border-adventure focus:ring-1 focus:ring-adventure/40" />
                 </label>
               ))}
               <button className="sm:col-span-2 rounded-full bg-adventure px-6 py-3.5 font-bold text-white transition hover:bg-[#e85f00] active:scale-95">
