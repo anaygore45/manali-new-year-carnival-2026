@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ArrowRight, BedDouble, Check, ChevronRight, Compass, Download, Flame, Instagram, MapPin, Menu, MessageCircle, Phone, Plane, Sparkles, Star, Train, Users, Waves, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Hero / destination images
 import manaliWinter from "./assets/manali-winter.png";
@@ -48,11 +48,9 @@ const images = {
 };
 
 const stats = [
-  ["11", "Days journey", Compass],
-  ["10", "Nights adventure", BedDouble],
-  ["100+", "Happy travelers", Users],
+  ["11 Days / 10 Nights", "Epic Himalayan journey", Compass],
+  ["500+", "Happy travelers", Users],
   ["4", "Premium hotel stays", Star],
-  ["All", "Meals included", Flame],
   ["AC", "Train included", Train],
 ] as const;
 
@@ -203,6 +201,26 @@ function CTA({ children = "Reserve Your Seat", className = "" }: { children?: Re
 export default function Home() {
   const [menu, setMenu] = useState(false);
 
+  // New Year countdown — target: 1 Jan 2027 00:00:00 IST (UTC+5:30)
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  useEffect(() => {
+    // IST = UTC + 5h30m = UTC + 19800 seconds
+    const target = new Date("2027-01-01T00:00:00+05:30").getTime();
+    const tick = () => {
+      const diff = target - Date.now();
+      if (diff <= 0) { setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 }); return; }
+      setTimeLeft({
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor((diff % 86400000) / 3600000),
+        minutes: Math.floor((diff % 3600000) / 60000),
+        seconds: Math.floor((diff % 60000) / 1000),
+      });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <main className="overflow-hidden">
 
@@ -263,7 +281,7 @@ export default function Home() {
               Manali <span className="text-adventure">•</span> Kullu <span className="text-adventure">•</span> Kasol <span className="text-adventure">•</span> Dharamshala <span className="text-adventure">•</span> Amritsar
             </p>
             <p className="mt-3 max-w-xl text-sm text-white/60">
-              A 10-day story of snow, starlight, strangers who become your favorite people, and one unforgettable countdown.
+              A 11-day story of snow, starlight, strangers who become your favorite people, and one unforgettable countdown.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <CTA />
@@ -301,7 +319,7 @@ export default function Home() {
               </p>
             </div>
           </Reveal>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map(([number, label, Icon]) => (
               <Reveal key={String(label)} className="h-full">
                 <div className="h-full rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-xl">
@@ -312,6 +330,41 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── NEW YEAR COUNTDOWN ── */}
+      <section className="relative overflow-hidden bg-slate px-5 py-14 text-white lg:px-8">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#061624] via-[#0d2137] to-[#061624]" />
+        {Array.from({ length: 12 }).map((_, i) => (
+          <i key={i} className="snow" style={{ left: `${(i * 37) % 100}%`, animationDuration: `${8 + (i % 6)}s`, animationDelay: `-${i % 8}s` }} />
+        ))}
+        <div className="relative mx-auto max-w-2xl text-center">
+          <Reveal>
+            <p className="section-label text-[#ffc18c]">Tick tock… the mountains are waiting</p>
+            <h2 className="mt-3 font-display text-2xl font-extrabold sm:text-3xl">
+              New Year 2027 Countdown
+            </h2>
+            <p className="mt-1 text-xs text-white/50">Indian Standard Time (IST · UTC+5:30)</p>
+            <div className="mt-8 grid grid-cols-4 gap-3">
+              {[
+                { val: timeLeft.days, label: "Days" },
+                { val: timeLeft.hours, label: "Hours" },
+                { val: timeLeft.minutes, label: "Mins" },
+                { val: timeLeft.seconds, label: "Secs" },
+              ].map(({ val, label }) => (
+                <div key={label} className="rounded-2xl bg-white/10 px-3 py-5 ring-1 ring-white/15 backdrop-blur">
+                  <p className="font-display text-3xl font-extrabold text-adventure sm:text-4xl">
+                    {String(val).padStart(2, "0")}
+                  </p>
+                  <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-white/55">{label}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-sm text-white/60">
+              🎉 Join us on <span className="font-bold text-[#ffc18c]">24 Dec 2026</span> — your countdown to the most epic New Year ever starts now!
+            </p>
+          </Reveal>
         </div>
       </section>
 
